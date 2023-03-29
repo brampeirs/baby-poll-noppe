@@ -1,9 +1,62 @@
 :host {
   display: block;
-  border-width: 1px 1px 7px 1px;
+  border-width: 0px 0px 7px 0px;
   border-style: solid;
   border-color: #bbcdf8;
   border-radius: 15px;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   margin-top: 20px;
+  height: 145px;
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.background-overlay {
+  position: absolute;
+  opacity: 40%;
+  height: 100%;
+  transform: rotate(-30deg);
+  background-repeat: no-repeat;
+  width: 280px;
+}
+.giraffe {
+  background: url("../../../assets/giraffe.png");
+  background-size: 140px;
+  top: 25px;
+  right: -191px;
+}
+.coala {
+  background: url("../../../assets/coala.png");
+  background-size: 120px;
+  top: 30px;
+  right: -202px;
+}
+.owl {
+  background: url("../../../assets/owl.png");
+  background-size: 90px;
+  top: 25px;
+  right: -215px;
+}
+.frog {
+  background: url("../../../assets/frog.png");
+  background-size: 90px;
+  top: 7px;
+  right: -202px;
+  filter: saturate(0.5);
+}
+
+.card-fields {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+.participant {
+  margin-top: 20px;
+}
+.participant span {
+  font-family: "Caveat", cursive;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-color-secondary);
 }

@@ -1,10 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-body {
+
+* {
   font-family: "Chewy", cursive;
 }
 :root {
-  --pink: #ffabd8;
-  --blue: #bbcdf8;
-  --purple: #adabff;
-  --purple-accent: #8988c6;
+  --pink: #f8decb;
+  --blue: #d5e3d3;
+  --green: #98a896;
+  --green-accent: #7c897a;
+  --text-color: #646f62;
+  --text-color-secondary: #c5bdc1;
+}
+body {
+  min-height: 100vh;
+  background-color: #bcc6ba;
+  color: var(--text-color);
 }

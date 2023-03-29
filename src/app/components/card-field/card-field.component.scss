@@ -1,0 +1,36 @@
+:host {
+  display: flex;
+  align-items: center;
+  //   border: 1px solid blue;
+  width: 50%;
+  max-width: 50%;
+}
+
+.icon {
+  //   border: 1px solid red;
+  width: 35px;
+  height: 35px;
+  border-radius: 12px;
+  background: var(--blue);
+  overflow: hidden;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.text-wrapper {
+  //   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--text-color-secondary);
+}
