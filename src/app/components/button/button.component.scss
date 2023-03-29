@@ -1,17 +1,16 @@
 :host {
   width: 100%;
   height: 4rem;
-  background-color: #adabff;
+  background-color: var(--purple);
   color: #fff;
   border: none;
-  border-bottom: 7px solid #8988c6;
+  border-bottom: 7px solid var(--purple-accent);
   border-radius: 29px;
   cursor: pointer;
   font-size: 1.5rem;
   font-weight: 400;
-  font-family: "Chewy", cursive;
 }
 
 :host:active {
-  border-bottom: 5px solid #8988c6;
+  border-bottom: 5px solid var(--purple-accent);
 }
