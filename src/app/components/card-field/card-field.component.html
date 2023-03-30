@@ -1,5 +1,5 @@
-<div class="icon">
-  <span>{{ icon }}</span>
+<div class="icon" [ngStyle]="iconBackground">
+  <bp-icon [name]="icon"></bp-icon>
 </div>
 <div class="text-wrapper">
   <span class="label">{{ label }}</span>

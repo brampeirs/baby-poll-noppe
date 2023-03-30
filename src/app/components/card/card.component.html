@@ -1,20 +1,28 @@
 <div class="background-overlay" [ngClass]="overlayClass"></div>
 <div class="card-fields">
-  <bp-card-field label="Naam" [text]="name" [gender]="gender"></bp-card-field>
+  <bp-card-field
+    label="Naam"
+    [text]="name"
+    [gender]="gender"
+    [icon]="gender"
+  ></bp-card-field>
   <bp-card-field
     label="Gewicht"
     [text]="weight + 'Kg'"
     [gender]="gender"
+    icon="weight"
   ></bp-card-field>
   <bp-card-field
     label="Datum"
     [text]="birthDateTime | date : 'dd MMM HH:mm'"
     [gender]="gender"
+    icon="calendar_month"
   ></bp-card-field>
   <bp-card-field
     label="Relatie"
     [text]="relation"
     [gender]="gender"
+    icon="favorite"
   ></bp-card-field>
 </div>
 <div class="participant">
