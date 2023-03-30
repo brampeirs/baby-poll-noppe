@@ -1,4 +1,9 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostBinding,
+  Input,
+} from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { CardFieldComponent } from '../card-field/card-field.component';
 
@@ -8,6 +13,7 @@ import { CardFieldComponent } from '../card-field/card-field.component';
   imports: [CommonModule, CardFieldComponent, DatePipe],
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {
   @Input() gender: 'male' | 'female' = 'male';

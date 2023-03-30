@@ -1,4 +1,9 @@
-import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -9,6 +14,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   imports: [CommonModule, HttpClientModule],
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent {
   constructor(
@@ -28,7 +34,7 @@ export class IconComponent {
       .subscribe((value) => {
         console.log('test', value);
         this.svgIcon = this.sanitizer.bypassSecurityTrustHtml(value);
-        this.changeDetectorRef.detectChanges();
+        this.changeDetectorRef.markForCheck();
       });
   }
 
