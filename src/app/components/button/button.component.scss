@@ -1,20 +1,48 @@
 :host {
-  width: 100%;
-  height: 5rem;
   background-color: var(--green);
   color: #fff;
   border: none;
-  border-bottom: 7px solid var(--green-accent);
-  border-radius: 29px;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+  z-index: 1;
+
   cursor: pointer;
-  font-size: 1.5rem;
+  padding: 20px;
+  height: 2.5rem;
   font-weight: 400;
+  padding: 10px;
+  border-bottom: 4px solid var(--green-accent);
 }
 :host:focus-visible {
   outline: 2px solid var(--green);
   outline-offset: 3px;
 }
 
+:host.icon-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+:host.btn-xl {
+  border-radius: 29px;
+  height: 5rem;
+  padding: 20px;
+  font-size: 1.5rem;
+  border-bottom: 7px solid var(--green-accent);
+}
 :host:active {
+  border-bottom: 3px solid var(--green-accent);
+}
+
+:host.btn-xl:active {
   border-bottom: 5px solid var(--green-accent);
+}
+
+bp-icon {
+  fill: #fff;
 }

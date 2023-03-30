@@ -1,11 +1,15 @@
 :host {
   display: block;
+  position: relative;
+  margin-top: 20px;
+}
+.card {
+  display: block;
   border-width: 0px 0px 7px 0px;
   border-style: solid;
   border-color: #bbcdf8;
   border-radius: 15px;
   padding: 20px 20px 0 20px;
-  margin-top: 20px;
   height: 145px;
   position: relative;
   background-color: #fff;
@@ -59,4 +63,11 @@
   font-weight: 700;
   font-size: 16px;
   color: var(--text-color-secondary);
+}
+
+.edit-button {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  right: -11px;
+  top: -11px;
 }
