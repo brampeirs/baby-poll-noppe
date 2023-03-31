@@ -32,7 +32,6 @@ export class IconComponent {
     this.httpClient
       .get(`assets/svg/${name}.svg`, { responseType: 'text' })
       .subscribe((value) => {
-        console.log('test', value);
         this.svgIcon = this.sanitizer.bypassSecurityTrustHtml(value);
         this.changeDetectorRef.markForCheck();
       });
