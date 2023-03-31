@@ -21,14 +21,3 @@ body {
   color: var(--text-color);
   margin: 0;
 }
-
-// https://dev.to/rachelg/a-javascript-fix-for-the-100vh-problem-on-mobile-screens-9im#comment-1jpb5
-body {
-  height: 100vh;
-  height: fill-available;
-  height: -webkit-fill-available;
-}
-html {
-  height: fill-available;
-  height: -webkit-fill-available;
-}

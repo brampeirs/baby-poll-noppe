@@ -5,11 +5,10 @@
   position: fixed;
   background-color: white;
   width: 100%;
-  border-top-left-radius: 29px;
-  border-top-right-radius: 29px;
+
   padding: 20px;
   padding-bottom: 0;
-  top: 20px;
+  top: 0;
 }
 
 .poll-container__header {
@@ -68,14 +67,15 @@
 }
 
 .poll-content {
-  overflow: scroll;
+  //   overflow: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
-  height: calc(100vh - 226px);
+  //   height: calc(100vh - 226px);
   background-color: white;
-  margin-top: 85px;
   word-break: break-all;
   padding: 20px;
+  padding-bottom: 115px;
+  padding-top: 95px;
 }
 
 .poll-content:-webkit-scrollbar {
