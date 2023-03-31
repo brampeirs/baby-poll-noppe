@@ -20,3 +20,13 @@ body {
   color: var(--text-color);
   margin: 0;
 }
+
+body {
+  height: 100vh;
+  height: fill-available;
+  height: -webkit-fill-available;
+}
+html {
+  height: fill-available;
+  height: -webkit-fill-available;
+}
