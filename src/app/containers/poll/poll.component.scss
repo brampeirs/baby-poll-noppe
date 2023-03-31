@@ -3,6 +3,8 @@
   background-color: white;
   //   height: calc(100vh - 40px);
   height: calc(100% - 20px);
+  height: fill-available;
+  height: -webkit-fill-available;
   border-top-left-radius: 29px;
   border-top-right-radius: 29px;
   padding: 20px;
