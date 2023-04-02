@@ -93,3 +93,202 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+.form-control {
+  background-color: #f8f9f8;
+  margin-top: 8px;
+  border-width: 3px 0px 0px 0px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #d7dbde;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+  color: var(--color-form-control);
+  cursor: pointer;
+}
+.form-control:has(input:focus),
+.form-control:has(input:active) {
+  border-color: #c2c5c7;
+}
+label {
+  display: block;
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+input[type="text"] {
+  outline: none;
+  background-color: #f8f9f8;
+  margin-top: 8px;
+  border-width: 3px 0px 0px 0px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #d7dbde;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+  color: var(--color-form-control);
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--color-form-control);
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+input::placeholder {
+  color: #d7dbde;
+}
+
+input[type="date"] {
+  //   height: 40px;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  // display: block;
+  // margin-top: 8px;
+  border-radius: 10px;
+  outline: #d7dbde;
+  font-size: 2rem;
+
+  color: var(--color-form-control);
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+}
+
+input:focus,
+input:active {
+  color: var(--text-color);
+}
+input[type="range"] {
+  height: 47px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 15px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+  background: #f8f9f8;
+  border-radius: 10px;
+  // border: 1px solid rgba(234, 234, 234, 0.25);
+}
+input[type="range"]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #7c897a;
+  border: 0px solid #7c897a;
+
+  border-bottom-width: 4px;
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  background: #98a896;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -13.5px;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #f8f9f8;
+}
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 15px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+  background: #f8f9f8;
+  border-radius: 10px;
+  // border: 1px solid #d7dbde;
+}
+input[type="range"]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #7c897a;
+  border: 0px solid #7c897a;
+
+  border-bottom-width: 4px;
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  background: #98a896;
+  cursor: pointer;
+}
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 15px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+  background: #f8f9f8;
+  border: 1px solid #d7dbde;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type="range"]::-ms-fill-upper {
+  background: #f8f9f8;
+  border: 1px solid #d7dbde;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type="range"]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #7c897a;
+  border: 0px solid #7c897a;
+
+  border-bottom-width: 4px;
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  background: #98a896;
+  cursor: pointer;
+}
+input[type="range"]:focus::-ms-fill-lower {
+  background: #f8f9f8;
+}
+input[type="range"]:focus::-ms-fill-upper {
+  background: #f8f9f8;
+}
+.weight {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 2rem;
+}
+.gender-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.gender {
+  width: 165px;
+  height: 165px;
+
+  margin-top: 20px;
+  border-bottom: 4px solid #d7dbde;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+}
+
+.male {
+  background: url("../../../assets/boy.png"), #f8f9f8;
+  background-position-y: 10px;
+}
+.female {
+  background: url("../../../assets/girl.png"), #f8f9f8;
+  background-position-y: 25px;
+}
+.male,
+.female {
+  background-size: 45%;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}

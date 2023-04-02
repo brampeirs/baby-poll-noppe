@@ -13,7 +13,33 @@
     </div>
   </div>
   <div class="poll-content">
-    <h1>test</h1>
+    <label for="participant">Naam deelnemer</label>
+    <input id="participant" type="text" placeholder="Bram Peirs" />
+
+    <label for="name">Geslacht</label>
+    <div class="gender-wrapper">
+      <div class="gender male">Jongen</div>
+      <div class="gender female">Meisje</div>
+    </div>
+    <label for="name">Naam baby</label>
+    <input id="name" type="text" placeholder="Maurice Junior" />
+
+    <label for="date">Datum</label>
+    <div class="form-control" tabindex="0">
+      <input id="date" type="date" value="2023-09-15" />
+    </div>
+
+    <label for="weight">Gewicht</label>
+    <div class="weight">{{ weight }} Kg</div>
+    <input
+      type="range"
+      id="weight"
+      name="weight"
+      min="2"
+      max="5"
+      step="0.1"
+      [(ngModel)]="weight"
+    />
   </div>
   <div class="footer">
     <div class="divider"></div>
