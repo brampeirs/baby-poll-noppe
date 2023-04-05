@@ -3,46 +3,59 @@
     <div class="poll-container__header">
       <button
         class="poll-container__header-close-btn"
-        icon="arrow_back"
-        routerLink="/"
+        [icon]="currentStep === 0 ? 'close' : 'arrow_back'"
+        (click)="navigateBack()"
       ></button>
       <span class="poll-container__header-title">Mijn voorspelling</span>
     </div>
     <div class="poll-container__progress">
-      <div class="poll-container__progress-value"></div>
+      <div
+        class="poll-container__progress-value"
+        [style.width.%]="((currentStep + 1) / 5) * 100"
+      ></div>
     </div>
   </div>
   <div class="poll-content">
-    <label for="participant">Naam deelnemer</label>
-    <input id="participant" type="text" placeholder="Bram Peirs" />
-
-    <label for="name">Geslacht</label>
-    <div class="gender-wrapper">
-      <div class="gender male">Jongen</div>
-      <div class="gender female">Meisje</div>
+    <div *ngIf="currentStep === 0" @flyInOut>
+      <label for="participant">Naam deelnemer</label>
+      <input id="participant" type="text" placeholder="Bram Peirs" />
     </div>
-    <label for="name">Naam baby</label>
-    <input id="name" type="text" placeholder="Maurice Junior" />
-
-    <label for="date">Datum</label>
-    <div class="form-control" tabindex="0">
-      <input id="date" type="date" value="2023-09-15" />
+    <div *ngIf="currentStep === 1" @flyInOut>
+      <label for="name">Geslacht</label>
+      <div class="gender-wrapper">
+        <div class="gender male">Jongen</div>
+        <div class="gender female">Meisje</div>
+      </div>
+    </div>
+    <div *ngIf="currentStep === 2" @flyInOut>
+      <label for="name">Naam baby</label>
+      <input id="name" type="text" placeholder="Maurice Junior" />
+    </div>
+    <div *ngIf="currentStep === 3" @flyInOut>
+      <label for="date">Datum</label>
+      <div class="form-control" tabindex="0">
+        <input id="date" type="date" value="2023-09-15" />
+      </div>
     </div>
 
-    <label for="weight">Gewicht</label>
-    <div class="weight">{{ weight }} Kg</div>
-    <input
-      type="range"
-      id="weight"
-      name="weight"
-      min="2"
-      max="5"
-      step="0.1"
-      [(ngModel)]="weight"
-    />
+    <div *ngIf="currentStep === 4" @flyInOut>
+      <label for="weight">Gewicht</label>
+      <div class="weight">{{ weight }} Kg</div>
+      <input
+        type="range"
+        id="weight"
+        name="weight"
+        min="2"
+        max="5"
+        step="0.1"
+        [(ngModel)]="weight"
+      />
+    </div>
   </div>
   <div class="footer">
     <div class="divider"></div>
-    <button class="btn-next btn-xl">volgende</button>
+    <button class="btn-next btn-xl" (click)="currentStep = currentStep + 1">
+      {{ currentStep === 4 ? "versturen" : "volgende" }}
+    </button>
   </div>
 </div>
