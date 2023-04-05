@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { ButtonComponent } from 'src/app/components/button/button.component';
-import { FormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import {
   animate,
   state,
@@ -14,7 +19,13 @@ import {
 @Component({
   selector: 'bp-poll',
   standalone: true,
-  imports: [CommonModule, RouterLink, ButtonComponent, FormsModule],
+  imports: [
+    CommonModule,
+    RouterLink,
+    ButtonComponent,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './poll.component.html',
   styleUrls: ['./poll.component.scss'],
   animations: [
@@ -31,7 +42,30 @@ export class PollComponent {
   weight = 2.5;
   currentStep = 0;
   showAll = false;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private formBuilder: FormBuilder) {
+    this.form.valueChanges.subscribe((form) => {
+      console.log(form);
+    });
+  }
+
+  form = this.formBuilder.group({
+    participant: this.formBuilder.control<string | undefined>(undefined, [
+      Validators.required,
+    ]),
+    relation: this.formBuilder.control<Date | undefined>(undefined, [
+      Validators.required,
+    ]),
+    gender: this.formBuilder.control<string | undefined>(undefined, [
+      Validators.required,
+    ]),
+    name: this.formBuilder.control<string | undefined>(undefined, [
+      Validators.required,
+    ]),
+    date: this.formBuilder.control<undefined | string>('2023-09-15', [
+      Validators.required,
+    ]),
+    weight: this.formBuilder.control<number | undefined>(2.4),
+  });
 
   navigateBack() {
     console.log(this.currentStep);
@@ -39,6 +73,33 @@ export class PollComponent {
       this.router.navigate(['/']);
     } else {
       this.currentStep = this.currentStep - 1;
+    }
+  }
+
+  get isDisabled() {
+    switch (this.currentStep) {
+      case 0:
+        console.log(this.form.get('participant')?.errors);
+        return this.form.get('participant')?.invalid;
+        break;
+      case 1:
+        return this.form.get('relation')?.invalid;
+        break;
+      case 2:
+        return this.form.get('gender')?.invalid;
+        break;
+      case 3:
+        return this.form.get('name')?.invalid;
+        break;
+      case 4:
+        return this.form.get('date')?.invalid;
+        break;
+      case 5:
+        return this.form.get('weight')?.invalid;
+        break;
+      default:
+        return false;
+      // code block
     }
   }
 }

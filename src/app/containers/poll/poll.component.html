@@ -11,51 +11,89 @@
     <div class="poll-container__progress">
       <div
         class="poll-container__progress-value"
-        [style.width.%]="((currentStep + 1) / 5) * 100"
+        [style.width.%]="((currentStep + 1) / 6) * 100"
       ></div>
     </div>
   </div>
   <div class="poll-content">
-    <div *ngIf="currentStep === 0" @flyInOut>
-      <label for="participant">Naam deelnemer</label>
-      <input id="participant" type="text" placeholder="Bram Peirs" />
-    </div>
-    <div *ngIf="currentStep === 1" @flyInOut>
-      <label for="name">Geslacht</label>
-      <div class="gender-wrapper">
-        <button class="gender male">Jongen</button>
-        <button class="gender female">Meisje</button>
+    <form [formGroup]="form">
+      <div *ngIf="currentStep === 0" @flyInOut>
+        <label for="participant">Naam deelnemer</label>
+        <input
+          id="participant"
+          type="text"
+          placeholder="Bram Peirs"
+          formControlName="participant"
+        />
       </div>
-    </div>
-    <div *ngIf="currentStep === 2" @flyInOut>
-      <label for="name">Naam baby</label>
-      <input id="name" type="text" placeholder="Maurice Junior" />
-    </div>
-    <div *ngIf="currentStep === 3" @flyInOut>
-      <label for="date">Datum</label>
-      <div class="form-control" tabindex="0">
-        <input id="date" type="date" value="2023-09-15" />
+      <div *ngIf="currentStep === 1" @flyInOut>
+        <label for="relation">Relatie deelnemer</label>
+        <input
+          id="relation"
+          type="text"
+          placeholder="Nonkel"
+          formControlName="relation"
+        />
       </div>
-    </div>
+      <div *ngIf="currentStep === 2" @flyInOut>
+        <label for="name">Geslacht</label>
+        <div class="gender-wrapper">
+          <button
+            class="gender male"
+            [class.selected]="form.get('gender')?.value === 'male'"
+            (click)="form.get('gender')?.setValue('male')"
+          >
+            Jongen
+          </button>
+          <button
+            class="gender female"
+            [class.selected]="form.get('gender')?.value === 'female'"
+            (click)="form.get('gender')?.setValue('female')"
+          >
+            Meisje
+          </button>
+        </div>
+      </div>
+      <div *ngIf="currentStep === 3" @flyInOut>
+        <label for="name">Naam baby</label>
+        <input
+          id="name"
+          type="text"
+          placeholder="Maurice Junior"
+          formControlName="name"
+        />
+      </div>
+      <div *ngIf="currentStep === 4" @flyInOut>
+        <label for="date">Datum</label>
+        <div class="form-control" tabindex="0">
+          <input id="date" type="date" formControlName="date" />
+        </div>
+      </div>
 
-    <div *ngIf="currentStep === 4" @flyInOut>
-      <label for="weight">Gewicht</label>
-      <div class="weight">{{ weight }} Kg</div>
-      <input
-        type="range"
-        id="weight"
-        name="weight"
-        min="2"
-        max="5"
-        step="0.1"
-        [(ngModel)]="weight"
-      />
-    </div>
+      <div *ngIf="currentStep === 5" @flyInOut>
+        <label for="weight">Gewicht</label>
+        <div class="weight">{{ form.get("weight")?.value }} Kg</div>
+        <input
+          type="range"
+          id="weight"
+          name="weight"
+          min="2"
+          max="5"
+          step="0.1"
+          formControlName="weight"
+        />
+      </div>
+    </form>
   </div>
   <div class="footer">
     <div class="divider"></div>
-    <button class="btn-next btn-xl" (click)="currentStep = currentStep + 1">
-      {{ currentStep === 4 ? "versturen" : "volgende" }}
+
+    <button
+      class="btn-next btn-xl"
+      (click)="currentStep = currentStep + 1"
+      [disabled]="isDisabled"
+    >
+      {{ currentStep === 5 ? "versturen" : "volgende" }}
     </button>
   </div>
 </div>

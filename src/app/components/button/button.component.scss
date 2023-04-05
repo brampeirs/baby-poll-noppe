@@ -43,6 +43,12 @@
   border-bottom: 5px solid var(--green-accent);
 }
 
+:host:disabled {
+  background-color: var(--grey);
+  border-color: var(--grey-accent);
+  pointer-events: none;
+}
+
 bp-icon {
   fill: #fff;
 }

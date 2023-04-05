@@ -288,7 +288,7 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .male:focus,
-.male .selected {
+.male.selected {
   background-color: #d5e3d3;
   border-width: 3px;
   border-color: var(--green);
@@ -298,7 +298,7 @@ input[type="range"]:focus::-ms-fill-upper {
   background-position-y: 25px;
 }
 .female:focus,
-.female .selected {
+.female.selected {
   background-color: var(--pink);
   border-width: 3px;
   border-color: var(--pink-accent);
