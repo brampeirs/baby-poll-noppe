@@ -5,10 +5,11 @@
   box-sizing: border-box;
 }
 :root {
-  --pink: #f8decb;
+  --pink: #f9deca;
+  --pink-accent: #c6b2a4;
   --blue: #d5e3d3;
   --green: #98a896;
-  --color-form-control: #818880;
+  --color-form-control: var(--green-accent);
   --green-accent: #7c897a;
   --text-color: var(--green-accent);
   //   --text-color: #646f62;
