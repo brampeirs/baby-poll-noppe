@@ -35,6 +35,16 @@
   font-size: 1.5rem;
   border-bottom: 7px solid var(--green-accent);
 }
+:host.btn-flat {
+  background-color: transparent;
+  border: none;
+  bp-icon {
+    fill: var(--green-accent);
+  }
+}
+:host.btn-flat:active {
+  border: none;
+}
 :host:active {
   border-bottom: 3px solid var(--green-accent);
 }

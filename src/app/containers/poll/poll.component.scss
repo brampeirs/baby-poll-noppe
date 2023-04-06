@@ -21,11 +21,6 @@
   font-size: 1.5rem;
 }
 
-.poll-container__header-close-btn {
-  position: absolute;
-  height: 100%;
-}
-
 .poll-container__progress {
   position: relative;
   margin-top: 20px;
@@ -309,3 +304,10 @@ input[type="range"]:focus::-ms-fill-upper {
   background-position-x: center;
   background-repeat: no-repeat;
 }
+
+/* smartphones, touchscreens */
+// @media (hover: none) and (pointer: coarse) {
+//   .footer {
+//     display: none;
+//   }
+// }

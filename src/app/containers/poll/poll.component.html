@@ -2,11 +2,14 @@
   <div class="poll-header">
     <div class="poll-container__header">
       <button
-        class="poll-container__header-close-btn"
+        class="btn-flat"
         [icon]="currentStep === 0 ? 'close' : 'arrow_back'"
         (click)="navigateBack()"
       ></button>
       <span class="poll-container__header-title">Mijn voorspelling</span>
+      <button (click)="currentStep = currentStep + 1" [disabled]="isDisabled">
+        {{ currentStep === 5 ? "versturen" : "volgende" }}
+      </button>
     </div>
     <div class="poll-container__progress">
       <div
