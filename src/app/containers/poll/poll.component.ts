@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit, Renderer2, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { ButtonComponent } from 'src/app/components/button/button.component';
@@ -38,7 +38,8 @@ import {
     ]),
   ],
 })
-export class PollComponent {
+export class PollComponent implements OnInit, OnDestroy {
+  private renderer = inject(Renderer2);
   weight = 2.5;
   currentStep = 0;
   showAll = false;
@@ -66,6 +67,14 @@ export class PollComponent {
     ]),
     weight: this.formBuilder.control<number | undefined>(2.4),
   });
+
+  ngOnInit(): void {
+    this.renderer.addClass(document.body, 'white-background');
+  }
+
+  ngOnDestroy(): void {
+    this.renderer.removeClass(document.body, 'white-background');
+  }
 
   navigateBack() {
     console.log(this.currentStep);

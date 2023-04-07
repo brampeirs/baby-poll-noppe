@@ -60,25 +60,10 @@
 }
 
 .poll-content {
-  //   overflow: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  //   height: calc(100vh - 226px);
-  background-color: white;
   word-break: break-all;
   padding: 20px;
   padding-top: 95px;
-  padding-bottom: 115px;
-  min-height: calc(100vh - 115px);
   overflow-x: hidden;
-
-  //   height 100vh does not work for ios
-  @supports (-webkit-touch-callout: none) {
-    min-height: -webkit-fill-available;
-    height: -webkit-fit-content;
-    margin-bottom: 115px;
-    padding-bottom: 0;
-  }
 }
 
 .poll-content:-webkit-scrollbar {
@@ -304,10 +289,3 @@ input[type="range"]:focus::-ms-fill-upper {
   background-position-x: center;
   background-repeat: no-repeat;
 }
-
-/* smartphones, touchscreens */
-// @media (hover: none) and (pointer: coarse) {
-//   .footer {
-//     display: none;
-//   }
-// }
