@@ -16,7 +16,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { PollService } from 'src/app/services/poll.service';
-import { Poll, PollPostDto } from 'src/app/services/poll.model';
+import { PollPostDto } from 'src/app/services/poll.model';
 import { take } from 'rxjs';
 
 @Component({
@@ -91,7 +91,6 @@ export class PollComponent implements OnInit, OnDestroy {
   }
 
   navigateBack() {
-    console.log(this.currentStep);
     if (this.currentStep === 0) {
       this.router.navigate(['/']);
     } else {
@@ -102,7 +101,6 @@ export class PollComponent implements OnInit, OnDestroy {
   get isDisabled() {
     switch (this.currentStep) {
       case 0:
-        console.log(this.form.get('participant')?.errors);
         return this.form.get('participant')?.invalid;
         break;
       case 1:
