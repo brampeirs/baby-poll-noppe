@@ -7,7 +7,7 @@
         (click)="navigateBack()"
       ></button>
       <span class="poll-container__header-title">Mijn voorspelling</span>
-      <button (click)="currentStep = currentStep + 1" [disabled]="isDisabled">
+      <button (click)="navigateForward()" [disabled]="isDisabled">
         {{ currentStep === 5 ? "versturen" : "volgende" }}
       </button>
     </div>
