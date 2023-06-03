@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from 'src/app/components/button/button.component';
 import { CardComponent } from 'src/app/components/card/card.component';
 import { RouterLink } from '@angular/router';
+import { PollService } from 'src/app/services/poll.service';
 
 @Component({
   selector: 'bp-overview',
@@ -13,4 +14,7 @@ import { RouterLink } from '@angular/router';
 })
 export class OverviewComponent {
   date = new Date();
+
+  private pollService = inject(PollService);
+  public polls$ = this.pollService.getpolls();
 }

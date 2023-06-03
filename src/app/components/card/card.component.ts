@@ -16,7 +16,7 @@ export class CardComponent {
   @Input() name: string | undefined;
   @Input() participant: string | undefined;
   @Input() relation: string | undefined;
-  @Input() birthDateTime: Date | undefined;
+  @Input() birthDateTime: string | undefined;
   @Input() weight: number | undefined;
   @Input() backgroundImage: 'giraffe' | 'owl' | 'frog' | 'coala' = 'frog';
   @Input() canEdit = false;

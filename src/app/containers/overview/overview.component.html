@@ -1,39 +1,14 @@
 <button [style.width.%]="100" class="btn-xl btn-register" routerLink="poll">
   Ik doe mee!
 </button>
+
 <bp-card
-  gender="female"
-  name="Jacline"
-  [weight]="3.5"
-  [birthDateTime]="date"
-  relation="Opie"
-  participant="Filip Peirs"
+  *ngFor="let poll of polls$ | async"
+  [gender]="poll.gender"
+  [name]="poll.name"
+  [weight]="poll.weight"
+  [birthDateTime]="poll.date"
+  [relation]="poll.relation"
+  [participant]="poll.participant"
   backgroundImage="coala"
-></bp-card>
-<bp-card
-  gender="female"
-  name="Bianca"
-  [weight]="3.5"
-  [birthDateTime]="date"
-  participant="Tom Peirs"
-  relation="nonkel"
-  backgroundImage="giraffe"
-></bp-card>
-<bp-card
-  gender="male"
-  name="Junior"
-  [weight]="3.5"
-  [birthDateTime]="date"
-  relation="nonkel"
-  participant="Thomas Noppe"
-  backgroundImage="owl"
-></bp-card>
-<bp-card
-  gender="male"
-  name="Mo"
-  [weight]="3.5"
-  [birthDateTime]="date"
-  relation="nonkel"
-  participant="Koen Peirs"
-  backgroundImage="frog"
 ></bp-card>
