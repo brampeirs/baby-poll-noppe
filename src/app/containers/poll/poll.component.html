@@ -1,3 +1,8 @@
+<ng-lottie
+  *ngIf="isSubmitting"
+  [options]="options"
+  (animationCreated)="animationCreated($event)"
+></ng-lottie>
 <div class="poll-container">
   <div class="poll-header">
     <div class="poll-container__header">

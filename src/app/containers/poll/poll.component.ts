@@ -17,7 +17,9 @@ import {
 } from '@angular/animations';
 import { PollService } from 'src/app/services/poll.service';
 import { PollPostDto } from 'src/app/services/poll.model';
-import { take } from 'rxjs';
+import { delayWhen, take, timer } from 'rxjs';
+import { LottieComponent, AnimationOptions } from 'ngx-lottie';
+import { AnimationItem } from 'lottie-web';
 
 @Component({
   selector: 'bp-poll',
@@ -28,6 +30,7 @@ import { take } from 'rxjs';
     ButtonComponent,
     FormsModule,
     ReactiveFormsModule,
+    LottieComponent,
   ],
   templateUrl: './poll.component.html',
   styleUrls: ['./poll.component.scss'],
@@ -51,8 +54,13 @@ export class PollComponent implements OnInit, OnDestroy {
         this.isSubmitting = true;
         this.pollService
           .postPoll(poll)
-          .pipe(take(1))
-          .subscribe(() => this.router.navigate(['./']));
+          .pipe(
+            take(1),
+            delayWhen(() => timer(1000))
+          )
+          .subscribe(() => {
+            this.router.navigate(['./']);
+          });
       }
     } else {
       this.currentStep = this.currentStep + 1;
@@ -64,6 +72,14 @@ export class PollComponent implements OnInit, OnDestroy {
   showAll = false;
   isSubmitting = false;
   constructor(private formBuilder: FormBuilder) {}
+
+  options: AnimationOptions = {
+    path: '/assets/animations/loading.json',
+  };
+
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
+  }
 
   form = this.formBuilder.group({
     participant: this.formBuilder.control<string | undefined>(undefined, [

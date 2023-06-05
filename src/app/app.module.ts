@@ -8,6 +8,15 @@ import { AppComponent } from './app.component';
 import localeNl from '@angular/common/locales/nl-BE';
 import { HttpClientModule } from '@angular/common/http';
 registerLocaleData(localeNl);
+
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+// Note we need a separate function as it's required
+// by the AOT compiler.
+export function playerFactory() {
+  return import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
+}
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -15,6 +24,7 @@ registerLocaleData(localeNl);
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ],
   providers: [
     {
