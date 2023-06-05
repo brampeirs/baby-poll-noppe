@@ -48,6 +48,7 @@ export class PollComponent implements OnInit, OnDestroy {
     if (this.currentStep === 5) {
       if (this.form.valid) {
         const poll: PollPostDto = this.form.value as unknown as PollPostDto;
+        this.isSubmitting = true;
         this.pollService
           .postPoll(poll)
           .pipe(take(1))
@@ -61,6 +62,7 @@ export class PollComponent implements OnInit, OnDestroy {
   weight = 2.5;
   currentStep = 0;
   showAll = false;
+  isSubmitting = false;
   constructor(private formBuilder: FormBuilder) {}
 
   form = this.formBuilder.group({
@@ -116,7 +118,7 @@ export class PollComponent implements OnInit, OnDestroy {
         return this.form.get('date')?.invalid;
         break;
       case 5:
-        return this.form.get('weight')?.invalid;
+        return this.form.get('weight')?.invalid || this.isSubmitting;
         break;
       default:
         return false;
