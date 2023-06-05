@@ -3,7 +3,7 @@
 </button>
 
 <bp-card
-  *ngFor="let poll of polls$ | async"
+  *ngFor="let poll of polls$ | async; trackBy: trackById"
   [gender]="poll.gender"
   [name]="poll.name"
   [weight]="poll.weight"
