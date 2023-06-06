@@ -26,28 +26,6 @@
   <div class="poll-content">
     <form [formGroup]="form" (ngSubmit)="navigateForward()">
       <div *ngIf="currentStep === 0" @flyInOut>
-        <label for="participant">Naam deelnemer</label>
-        <input
-          id="participant"
-          type="text"
-          placeholder="Bram Peirs"
-          formControlName="participant"
-        />
-      </div>
-      <div *ngIf="currentStep === 1" @flyInOut>
-        <label for="length">Lengte</label>
-        <div class="length">{{ form.get("length")?.value }} cm</div>
-        <input
-          type="range"
-          id="length"
-          name="length"
-          min="30"
-          max="60"
-          step="1"
-          formControlName="length"
-        />
-      </div>
-      <div *ngIf="currentStep === 2" @flyInOut>
         <label for="name">Geslacht</label>
         <div class="gender-wrapper">
           <button
@@ -68,8 +46,8 @@
           </button>
         </div>
       </div>
-      <div *ngIf="currentStep === 3" @flyInOut>
-        <label for="name">Naam baby</label>
+      <div *ngIf="currentStep === 1" @flyInOut>
+        <label for="name">Naam</label>
         <input
           id="name"
           type="text"
@@ -77,14 +55,27 @@
           formControlName="name"
         />
       </div>
-      <div *ngIf="currentStep === 4" @flyInOut>
+      <div *ngIf="currentStep === 2" @flyInOut>
         <label for="date">Datum</label>
         <div class="form-control" tabindex="0">
           <input id="date" type="date" formControlName="date" />
         </div>
       </div>
+      <div *ngIf="currentStep === 3" @flyInOut>
+        <label for="length">Lengte</label>
+        <div class="length">{{ form.get("length")?.value }} cm</div>
+        <input
+          type="range"
+          id="length"
+          name="length"
+          min="30"
+          max="60"
+          step="1"
+          formControlName="length"
+        />
+      </div>
 
-      <div *ngIf="currentStep === 5" @flyInOut>
+      <div *ngIf="currentStep === 4" @flyInOut>
         <label for="weight">Gewicht</label>
         <div class="weight">{{ form.get("weight")?.value | number }} Kg</div>
         <input
@@ -95,6 +86,15 @@
           max="5"
           step="0.1"
           formControlName="weight"
+        />
+      </div>
+      <div *ngIf="currentStep === 5" @flyInOut>
+        <label for="participant">Naam deelnemer</label>
+        <input
+          id="participant"
+          type="text"
+          placeholder="Bram Peirs"
+          formControlName="participant"
         />
       </div>
     </form>

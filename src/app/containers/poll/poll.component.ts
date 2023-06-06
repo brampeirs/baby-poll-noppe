@@ -98,7 +98,7 @@ export class PollComponent implements OnInit, OnDestroy {
     date: this.formBuilder.control<undefined | string>('2023-09-15', [
       Validators.required,
     ]),
-    weight: this.formBuilder.control<number | undefined>(2.4),
+    weight: this.formBuilder.control<number | undefined>(3),
   });
 
   ngOnInit(): void {
@@ -120,22 +120,22 @@ export class PollComponent implements OnInit, OnDestroy {
   get isDisabled() {
     switch (this.currentStep) {
       case 0:
-        return this.form.get('participant')?.invalid;
-        break;
-      case 1:
-        return this.form.get('length')?.invalid;
-        break;
-      case 2:
         return this.form.get('gender')?.invalid;
         break;
-      case 3:
+      case 1:
         return this.form.get('name')?.invalid;
         break;
-      case 4:
+      case 2:
         return this.form.get('date')?.invalid;
         break;
+      case 3:
+        return this.form.get('length')?.invalid;
+        break;
+      case 4:
+        return this.form.get('weight')?.invalid;
+        break;
       case 5:
-        return this.form.get('weight')?.invalid || this.isSubmitting;
+        return this.form.get('participant')?.invalid || this.isSubmitting;
         break;
       default:
         return false;
