@@ -12,3 +12,6 @@
   [participant]="poll.participant"
   backgroundImage="coala"
 ></bp-card>
+<div *ngIf="isRequesting$ | async" class="loading-wrapper">
+  <bp-spinner></bp-spinner><span>Stemmen ophalen...</span>
+</div>
