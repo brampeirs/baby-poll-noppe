@@ -11,7 +11,7 @@
         [icon]="currentStep === 0 ? 'close' : 'arrow_back'"
         (click)="navigateBack()"
       ></button>
-      <span class="poll-container__header-title">Mijn voorspelling</span>
+      <span class="poll-container__header-title">Mijn gok</span>
       <button (click)="navigateForward()" [disabled]="isDisabled">
         {{ currentStep === 5 ? "versturen" : "volgende" }}
       </button>
@@ -57,6 +57,7 @@
       </div>
       <div *ngIf="currentStep === 2" @flyInOut>
         <label for="date">Datum</label>
+        <span>(tip: geschatte datum 15/09)</span>
         <div class="form-control" tabindex="0">
           <input id="date" type="date" formControlName="date" />
         </div>
