@@ -30,4 +30,18 @@ export class CardComponent {
   get overlayClass() {
     return this.backgroundImage;
   }
+
+  constructor() {
+    this.backgroundImage = this.getRandomAnimal();
+  }
+  getRandomAnimal(): 'giraffe' | 'owl' | 'frog' | 'coala' {
+    const animals: Array<'giraffe' | 'owl' | 'frog' | 'coala'> = [
+      'giraffe',
+      'owl',
+      'frog',
+      'coala',
+    ];
+    const randomIndex = Math.floor(Math.random() * animals.length);
+    return animals[randomIndex];
+  }
 }

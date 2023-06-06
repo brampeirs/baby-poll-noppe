@@ -21,8 +21,6 @@ import { SpinnerComponent } from 'src/app/components/spinner/spinner.component';
   styleUrls: ['./overview.component.scss'],
 })
 export class OverviewComponent {
-  date = new Date();
-
   private pollService = inject(PollService);
   public polls$ = this.pollService.polls$;
   public isRequesting$ = this.pollService.isRequesting$;

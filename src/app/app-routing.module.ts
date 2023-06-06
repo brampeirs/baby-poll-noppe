@@ -10,7 +10,10 @@ const routes: Routes = [
   },
   {
     path: 'poll',
-    component: PollComponent,
+    loadComponent: () =>
+      import('./containers/poll/poll.component').then(
+        (mod) => mod.PollComponent
+      ),
   },
 ];
 
