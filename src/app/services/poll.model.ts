@@ -5,7 +5,7 @@ export interface Poll {
   name: string;
   weight: number;
   date: string;
-  relation: string;
+  length: number;
   participant: string;
   backgroundImage: string;
 }
@@ -14,7 +14,7 @@ export interface PollPostDto {
   name: string;
   weight: number;
   date: string;
-  relation: string;
+  length: number;
   participant: string;
   backgroundImage?: string;
 }

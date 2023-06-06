@@ -232,7 +232,8 @@ input[type="range"]:focus::-ms-fill-lower {
 input[type="range"]:focus::-ms-fill-upper {
   background: #f8f9f8;
 }
-.weight {
+.weight,
+.length {
   margin: 0 auto;
   text-align: center;
   font-size: 2rem;
@@ -304,6 +305,7 @@ ng-lottie {
   position: absolute;
   z-index: 1;
   width: 90%;
-  top: 40%;
+  top: 150px;
+  bottom: 50px;
   left: 0;
 }

@@ -15,7 +15,7 @@ export class CardComponent {
   @Input() gender: 'male' | 'female' = 'male';
   @Input() name: string | undefined;
   @Input() participant: string | undefined;
-  @Input() relation: string | undefined;
+  @Input() length: number | undefined;
   @Input() birthDateTime: string | undefined;
   @Input() weight: number | undefined;
   @Input() backgroundImage: 'giraffe' | 'owl' | 'frog' | 'coala' = 'frog';

@@ -85,9 +85,7 @@ export class PollComponent implements OnInit, OnDestroy {
     participant: this.formBuilder.control<string | undefined>(undefined, [
       Validators.required,
     ]),
-    relation: this.formBuilder.control<Date | undefined>(undefined, [
-      Validators.required,
-    ]),
+    length: this.formBuilder.control<number | undefined>(40),
     gender: this.formBuilder.control<string | undefined>(undefined, [
       Validators.required,
     ]),
@@ -122,7 +120,7 @@ export class PollComponent implements OnInit, OnDestroy {
         return this.form.get('participant')?.invalid;
         break;
       case 1:
-        return this.form.get('relation')?.invalid;
+        return this.form.get('length')?.invalid;
         break;
       case 2:
         return this.form.get('gender')?.invalid;
