@@ -24,7 +24,7 @@
     </div>
   </div>
   <div class="poll-content">
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="navigateForward()">
       <div *ngIf="currentStep === 0" @flyInOut>
         <label for="participant">Naam deelnemer</label>
         <input
@@ -35,7 +35,7 @@
         />
       </div>
       <div *ngIf="currentStep === 1" @flyInOut>
-        <label for="length">lengte</label>
+        <label for="length">Lengte</label>
         <div class="length">{{ form.get("length")?.value }} cm</div>
         <input
           type="range"
@@ -43,7 +43,7 @@
           name="length"
           min="30"
           max="60"
-          step="0.1"
+          step="1"
           formControlName="length"
         />
       </div>
@@ -54,6 +54,7 @@
             class="gender male"
             [class.selected]="form.get('gender')?.value === 'male'"
             (click)="form.get('gender')?.setValue('male')"
+            type="button"
           >
             Jongen
           </button>
@@ -61,6 +62,7 @@
             class="gender female"
             [class.selected]="form.get('gender')?.value === 'female'"
             (click)="form.get('gender')?.setValue('female')"
+            type="button"
           >
             Meisje
           </button>
@@ -84,7 +86,7 @@
 
       <div *ngIf="currentStep === 5" @flyInOut>
         <label for="weight">Gewicht</label>
-        <div class="weight">{{ form.get("weight")?.value }} Kg</div>
+        <div class="weight">{{ form.get("weight")?.value | number }} Kg</div>
         <input
           type="range"
           id="weight"

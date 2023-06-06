@@ -102,7 +102,6 @@ input[type="text"] {
   border-radius: 10px;
   border-color: #d7dbde;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
-  color: var(--color-form-control);
   font-size: 2rem;
   color: var(--color-form-control);
   padding: 20px;
@@ -231,6 +230,17 @@ input[type="range"]:focus::-ms-fill-lower {
 }
 input[type="range"]:focus::-ms-fill-upper {
   background: #f8f9f8;
+}
+
+// override the yellow styles applied by safari when autofill
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 60px #fafafa inset !important;
+  background-color: #f8f9f8 !important;
+  background-clip: content-box !important;
+  -webkit-text-fill-color: var(--color-form-control) !important;
 }
 .weight,
 .length {

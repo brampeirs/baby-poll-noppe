@@ -48,6 +48,9 @@ export class PollComponent implements OnInit, OnDestroy {
   pollService = inject(PollService);
   router = inject(Router);
   navigateForward() {
+    if (this.isDisabled) {
+      return;
+    }
     if (this.currentStep === 5) {
       if (this.form.valid) {
         const poll: PollPostDto = this.form.value as unknown as PollPostDto;
@@ -85,7 +88,7 @@ export class PollComponent implements OnInit, OnDestroy {
     participant: this.formBuilder.control<string | undefined>(undefined, [
       Validators.required,
     ]),
-    length: this.formBuilder.control<number | undefined>(40),
+    length: this.formBuilder.control<number | undefined>(50),
     gender: this.formBuilder.control<string | undefined>(undefined, [
       Validators.required,
     ]),

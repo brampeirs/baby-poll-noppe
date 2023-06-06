@@ -11,7 +11,7 @@
     ></bp-card-field>
     <bp-card-field
       label="Gewicht"
-      [text]="weight + ' Kg'"
+      [text]="(weight | number) + ' Kg'"
       [gender]="gender"
       icon="weight"
     ></bp-card-field>
@@ -22,7 +22,7 @@
       icon="calendar_month"
     ></bp-card-field>
     <bp-card-field
-      label="Length"
+      label="Lengte"
       [text]="length + ' cm'"
       [gender]="gender"
       icon="straighten"
