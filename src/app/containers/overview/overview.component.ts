@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ButtonComponent } from 'src/app/components/button/button.component';
 import { CardComponent } from 'src/app/components/card/card.component';
 import { RouterLink } from '@angular/router';
@@ -16,6 +17,7 @@ import { SpinnerComponent } from 'src/app/components/spinner/spinner.component';
     CardComponent,
     RouterLink,
     SpinnerComponent,
+    ScrollingModule,
   ],
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss'],

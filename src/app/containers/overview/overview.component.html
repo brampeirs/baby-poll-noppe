@@ -1,16 +1,18 @@
 <button [style.width.%]="100" class="btn-xl btn-register" routerLink="poll">
   Ik doe mee!
 </button>
+<cdk-virtual-scroll-viewport scrollWindow itemSize="192">
+  <bp-card
+    *cdkVirtualFor="let poll of polls$ | async; trackBy: trackById"
+    [gender]="poll.gender"
+    [name]="poll.name"
+    [weight]="poll.weight"
+    [birthDateTime]="poll.date"
+    [length]="poll.length"
+    [participant]="poll.participant"
+  ></bp-card>
+</cdk-virtual-scroll-viewport>
 
-<bp-card
-  *ngFor="let poll of polls$ | async; trackBy: trackById"
-  [gender]="poll.gender"
-  [name]="poll.name"
-  [weight]="poll.weight"
-  [birthDateTime]="poll.date"
-  [length]="poll.length"
-  [participant]="poll.participant"
-></bp-card>
 <div *ngIf="isRequesting$ | async" class="loading-wrapper">
   <bp-spinner></bp-spinner><span>Gokjes ophalen...</span>
 </div>
