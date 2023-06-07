@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 registerLocaleData(localeNl);
 
 import { LottieModule } from 'ngx-lottie';
-import player from 'lottie-web';
+import { IconService } from './services/icon.service';
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -31,6 +31,7 @@ export function playerFactory() {
       provide: LOCALE_ID,
       useValue: 'nl-BE',
     },
+    IconService,
   ],
   bootstrap: [AppComponent],
 })

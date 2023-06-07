@@ -5,20 +5,20 @@ import {
   Input,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
-// https://stackoverflow.com/questions/53066823/how-do-i-import-svg-from-file-to-a-component-in-angular-5
+import { IconService } from 'src/app/services/icon.service';
+import { take } from 'rxjs';
 @Component({
   selector: 'bp-icon',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule],
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent {
   constructor(
-    private httpClient: HttpClient,
+    private iconService: IconService,
     private sanitizer: DomSanitizer,
     private changeDetectorRef: ChangeDetectorRef
   ) {}
@@ -29,8 +29,9 @@ export class IconComponent {
   }
 
   #injectSvgIcon(name: string) {
-    this.httpClient
-      .get(`assets/svg/${name}.svg`, { responseType: 'text' })
+    this.iconService
+      .getSvgIcon(name)
+      .pipe(take(1))
       .subscribe((value) => {
         this.svgIcon = this.sanitizer.bypassSecurityTrustHtml(value);
         this.changeDetectorRef.markForCheck();
