@@ -273,7 +273,7 @@ input:-webkit-autofill:active {
 }
 
 .male {
-  background: url("../../../assets/boy.png"), #f8f9f8;
+  background: url("../../../assets/boy.webp"), #f8f9f8;
   background-position-y: 10px;
 }
 
@@ -284,7 +284,7 @@ input:-webkit-autofill:active {
   border-color: var(--green);
 }
 .female {
-  background: url("../../../assets/girl.png"), #f8f9f8;
+  background: url("../../../assets/girl.webp"), #f8f9f8;
   background-position-y: 25px;
 }
 .female:focus,
