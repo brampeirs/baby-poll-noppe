@@ -7,6 +7,17 @@ import { RouterLink } from '@angular/router';
 import { PollService } from 'src/app/services/poll.service';
 import { Poll } from 'src/app/services/poll.model';
 import { SpinnerComponent } from 'src/app/components/spinner/spinner.component';
+import { Observable, filter, map } from 'rxjs';
+
+interface PollSummary {
+  participants: number;
+  maleVotes: number;
+  femaleVotes: number;
+  popularNames: {
+    name: string;
+    count: number;
+  }[];
+}
 
 @Component({
   selector: 'bp-overview',
@@ -27,11 +38,43 @@ export class OverviewComponent {
   public polls$ = this.pollService.polls$;
   public isRequesting$ = this.pollService.isRequesting$;
 
+  public summary$: Observable<PollSummary> = this.polls$.pipe(
+    filter((polls) => polls.length > 0),
+    map((polls) => this.getPollSummary(polls))
+  );
+
   constructor() {
     this.pollService.loadPolls();
   }
 
   trackById(index: number, poll: Poll): string {
     return poll.id;
+  }
+
+  private getPollSummary(polls: Poll[]): PollSummary {
+    const nameCountMap = new Map<string, number>();
+
+    polls.forEach((poll) => {
+      const count = nameCountMap.get(poll.name) || 0;
+      nameCountMap.set(poll.name, count + 1);
+    });
+
+    const namesCount = Array.from(nameCountMap.entries()).map(
+      ([name, count]) => ({ name, count })
+    );
+
+    namesCount.sort((a, b) => b.count - a.count);
+
+    const topFiveResultsPresentAtLeastTwice = namesCount
+      .slice(0, 5)
+      .filter((result) => result.count > 1);
+
+    const pollSummary: PollSummary = {
+      participants: polls.length,
+      maleVotes: polls.filter((poll) => poll.gender === 'male').length,
+      femaleVotes: polls.filter((poll) => poll.gender === 'female').length,
+      popularNames: topFiveResultsPresentAtLeastTwice,
+    };
+    return pollSummary;
   }
 }

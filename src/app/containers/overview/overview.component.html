@@ -1,6 +1,28 @@
 <button [style.width.%]="100" class="btn-xl btn-register" routerLink="poll">
   Ik doe mee!
 </button>
+
+<div class="card" *ngIf="summary$ | async as summary">
+  <span class="popular-names"
+    >De meest gekozen namen zijn
+    <span
+      *ngFor="
+        let popularName of summary.popularNames;
+        let isLast = last;
+        let i = index
+      "
+      >{{ popularName.name
+      }}{{
+        i === summary.popularNames.length - 2 ? " en " : isLast ? "" : ", "
+      }}</span
+    >.
+  </span>
+
+  <span
+    >Er zijn {{ summary.participants }} gokjes, waarvan
+    {{ summary.maleVotes }} jongens en {{ summary.femaleVotes }} meisjes.</span
+  >
+</div>
 <cdk-virtual-scroll-viewport scrollWindow itemSize="192">
   <bp-card
     *cdkVirtualFor="let poll of polls$ | async; trackBy: trackById"
