@@ -55,8 +55,13 @@ export class OverviewComponent {
     const nameCountMap = new Map<string, number>();
 
     polls.forEach((poll) => {
-      const count = nameCountMap.get(poll.name) || 0;
-      nameCountMap.set(poll.name, count + 1);
+      // remove the diacritic marks
+      const normalizedName = poll.name
+        .trim()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+      const count = nameCountMap.get(normalizedName) || 0;
+      nameCountMap.set(normalizedName, count + 1);
     });
 
     const namesCount = Array.from(nameCountMap.entries()).map(
