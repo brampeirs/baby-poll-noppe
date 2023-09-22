@@ -8,7 +8,7 @@ import { PollResponse } from './poll-response.model';
   providedIn: 'root',
 })
 export class PollService {
-  private readonly apiUrl = 'https://api.babypeirs.be';
+  private readonly apiUrl = 'https://api.babynoppe.be';
   private httpClient = inject(HttpClient);
   private readonly _polls$ = new BehaviorSubject<Poll[]>([]);
   private readonly _isRequesting$ = new BehaviorSubject<boolean>(false);
