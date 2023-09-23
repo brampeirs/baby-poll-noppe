@@ -9,7 +9,7 @@ import { PollResponse } from './poll-response.model';
 })
 export class PollService {
   private readonly apiUrl =
-    'https://vt14h44c6l.execute-api.us-east-1.amazonaws.com/prod/';
+    'https://cxg4ogrfx4.execute-api.us-east-1.amazonaws.com/dev';
   private httpClient = inject(HttpClient);
   private readonly _polls$ = new BehaviorSubject<Poll[]>([]);
   private readonly _isRequesting$ = new BehaviorSubject<boolean>(false);
