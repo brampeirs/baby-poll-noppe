@@ -3,7 +3,7 @@
 </button>
 
 <div class="card" *ngIf="summary$ | async as summary">
-  <span class="popular-names"
+  <span class="popular-names" *ngIf="summary.popularNames.length > 0"
     >De meest gekozen namen zijn
     <span
       *ngFor="
