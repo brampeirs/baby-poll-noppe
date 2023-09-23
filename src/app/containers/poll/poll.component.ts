@@ -95,7 +95,7 @@ export class PollComponent implements OnInit, OnDestroy {
     name: this.formBuilder.control<string | undefined>(undefined, [
       Validators.required,
     ]),
-    date: this.formBuilder.control<undefined | string>('2023-09-15', [
+    date: this.formBuilder.control<undefined | string>('2024-03-13', [
       Validators.required,
     ]),
     weight: this.formBuilder.control<number | undefined>(3),
